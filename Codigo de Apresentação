@@ -1,7 +1,0 @@
-idade = int(input("Digite sua idade: "))
-experiencia = int(input("Digite o número de anos de experiência: "))
-habilitacao = input("Você possui habilitação (sim/não)? ").strip().lower()
-if idade >= 18 and experiencia >= 2 and habilitacao == "sim":
-    print("Parabéns, você foi aprovado na seleção!")
-else:
-    print("Desculpe, você não atende aos critérios da seleção.")
