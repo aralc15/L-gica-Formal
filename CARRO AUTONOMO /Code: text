@@ -4,6 +4,10 @@
 falha(ignicao, [bateria_fraca, vela_de_ignicao_defeituosa, falha_no_motor]).
 falha(superaquecimento, [nivel_baixo_de_oleo, falha_na_bomba_de_agua, termostato_quebrado]).
 falha(bateria_fraca, [alternador_defeituoso, bateria_desgastada, cabos_soltos]).
+falha(rotacao_motor_alta, [carburador_sujo, sensor_de_rotacao_defeituoso]).
+falha(temperatura_alta, [radiador_entupido, falha_na_bomba_de_agua, nivel_baixo_de_oleo]).
+falha(nivel_baixo_de_oleo, [vazamento_de_oleo, bomba_de_oleo_defeituosa]).
+falha(presso_de_oleo_baixa, [bomba_de_oleo_defeituosa, filtro_de_oleo_entupido]).
 
 % Ações corretivas para cada causa
 acao(bateria_fraca, 'Verificar e recarregar/substituir a bateria').
@@ -15,6 +19,12 @@ acao(termostato_quebrado, 'Substituir o termostato').
 acao(alternador_defeituoso, 'Reparar ou substituir o alternador').
 acao(bateria_desgastada, 'Substituir a bateria').
 acao(cabos_soltos, 'Verificar e reconectar os cabos').
+acao(carburador_sujo, 'Limpar ou substituir o carburador').
+acao(sensor_de_rotacao_defeituoso, 'Verificar e substituir o sensor de rotação').
+acao(radiador_entupido, 'Limpar o radiador').
+acao(vazamento_de_oleo, 'Inspecionar e reparar vazamentos de óleo').
+acao(bomba_de_oleo_defeituosa, 'Reparar ou substituir a bomba de óleo').
+acao(filtro_de_oleo_entupido, 'Substituir o filtro de óleo').
 
 % Regras de diagnóstico
 diagnosticar(Sintoma) :-
@@ -34,5 +44,11 @@ sugestao_correcoes([Causa|Outras]) :-
     write('Ação sugerida para '), write(Causa), write(': '), write(Solucao), nl,
     sugestao_correcoes(Outras).
 
-% Consulta
-% Para diagnosticar, use: diagnosticar(ignicao). ou diagnosticar(superaquecimento).
+% Consultas
+% Para diagnosticar, use: 
+% diagnosticar(ignicao). 
+% diagnosticar(superaquecimento). 
+% diagnosticar(rotacao_motor_alta). 
+% diagnosticar(temperatura_alta). 
+% diagnosticar(nivel_baixo_de_oleo). 
+% diagnosticar(presso_de_oleo_baixa).
