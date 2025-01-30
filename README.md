@@ -1,14 +1,42 @@
-# 📄: Licença
+# Lógica Formal
 
-Este projeto é de código aberto e está disponível sob a licença [especifique a licença aqui].
+# 📌: Sobre o Projeto
 
-✉️ Para dúvidas ou sugestões, entre em contato com um dos membros da equipe!
+Este projeto consiste no desenvolvimento de um trabalho envolvendo lógica formal, incluindo uma apresentação e código relacionado ao tema. O objetivo é demonstrar conceitos fundamentais da lógica formal, explorando proposições, inferências e demonstrações formais.
 
-@data última versão: [Data de Hoje]
+👥 Equipe de Desenvolvimento
 
-@versão: 1.0
+* Arthur da Silva Sá
 
-@Agradecimentos: Universidade Federal do Maranhão (UFMA), Professor Doutor Thales Levi Azevedo Valente, e colegas de curso.
+* Bruno Ferres
+
+* Arthur Reis
+
+* Ana Clara
+
+# 📖: Conteúdo do Trabalho
+
+O projeto abrange os seguintes tópicos:
+
+- `Introdução à lógica formal`
+- `Proposições e conectivos lógicos`
+- `Tabelas verdade`
+- `Regras de inferência`
+- `Demonstração de teoremas`
+- `Aplicações`: I.A, Ciência de dados e big data, Probabilidade e estatística, Filosofia, Resolução de problemas, 
+- `Implementação de lógica formal em código`
+
+# 🛠: Tecnologias Utilizadas
+
+Linguagem: Prolog
+
+# 🗂️: Informações complementares e agradecimentos
+
+* Para dúvidas ou sugestões, entre em contato com um dos membros da equipe!
+
+- `@ Data última versão: [30 de Janeiro de 2025]`
+- `@ Versão: 1.0`
+- `@ Agradecimentos: Universidade Federal do Maranhão (UFMA), Professor Doutor Thales Levi Azevedo Valente, e colegas de curso.`
 
 # 📄: Copyright/License
 
