@@ -1,0 +1,93 @@
+// Após apresentação foi relatado falta de complexidade no codigo, pensando nisso uma nova versão foi feita com as seguintes modificações
+// 1 - Adicionar mais critérios de avaliação como habilidades específicas.
+// 2 - Introduzir um sistema de pontuação mais detalhado, considerando diferentes áreas de competência.
+// 3 - Validar entradas de maneira mais robusta, permitindo ao usuário corrigir entradas inválidas sem precisar reiniciar o programa.
+// 4 - Considerar um sistema de bonus ou penalidades, como um bônus por experiências extra relevantes ou penalidades por falta de habilidades exigidas.
+// 5 - Adicionar possibilidade de retornar um feedback mais detalhado para o usuário, com um ranking de pontos em cada categoria.
+
+
+def verificar_selecao(idade, experiencia, habilitacao, cursos_complementares, escolaridade, certificacoes, habilidades_especificas, idioma):
+    pontuacao = 0
+    feedback = []
+
+    if idade < 18:
+        return "Rejeitado: Você deve ter pelo menos 18 anos."
+
+    if experiencia < 2:
+        feedback.append("Você deve ter pelo menos 2 anos de experiência.")
+        return "Rejeitado: " + " ".join(feedback)
+    
+    if habilitacao != "sim":
+        feedback.append("Você deve possuir habilitação.")
+        return "Rejeitado: " + " ".join(feedback)
+    
+    if cursos_complementares < 1:
+        feedback.append("É necessário ter pelo menos um curso complementar.")
+    
+    if escolaridade not in ["superior", "pós-graduação", "mestrado", "doutorado"]:
+        feedback.append("É necessário ter pelo menos ensino superior.")
+    
+    if not habilidades_especificas:
+        feedback.append("Você deve possuir habilidades específicas para a vaga.")
+    
+    if not idioma:
+        feedback.append("É necessário possuir conhecimento em pelo menos um idioma estrangeiro.")
+
+    if feedback:
+        return "Rejeitado: " + " ".join(feedback)
+
+    # Pontuação baseada nos critérios
+    pontuacao += experiencia * 2
+    pontuacao += cursos_complementares * 3
+    
+    if escolaridade == "pós-graduação":
+        pontuacao += 5
+    elif escolaridade == "mestrado":
+        pontuacao += 7
+    elif escolaridade == "doutorado":
+        pontuacao += 10
+    
+    if certificacoes > 2:
+        pontuacao += 5
+
+    # Habilidades específicas e idiomas
+    if habilidades_especificas == "avançadas":
+        pontuacao += 6
+    elif habilidades_especificas == "intermediárias":
+        pontuacao += 4
+    elif habilidades_especificas == "básicas":
+        pontuacao += 2
+
+    if idioma == "fluente":
+        pontuacao += 5
+    elif idioma == "intermediário":
+        pontuacao += 3
+    elif idioma == "básico":
+        pontuacao += 1
+
+    # Classificação com base na pontuação
+    if pontuacao >= 35:
+        return "Aprovado com distinção: Excelente perfil!"
+    elif pontuacao >= 20:
+        return "Aprovado: Você atende bem aos critérios."
+    else:
+        return "Aprovado com ressalvas: Você atende aos critérios mínimos, mas pode melhorar."
+
+def main():
+    try:
+        idade = int(input("Digite sua idade: "))
+        experiencia = int(input("Digite quantos anos de experiência você tem: "))
+        habilitacao = input("Você possui habilitação (sim/não)? ").strip().lower()
+        cursos_complementares = int(input("Quantos cursos complementares você tem? "))
+        escolaridade = input("Qual é sua escolaridade (médio/superior/pós-graduação/mestrado/doutorado)? ").strip().lower()
+        certificacoes = int(input("Quantas certificações extras você possui? "))
+        habilidades_especificas = input("Qual é seu nível de habilidades específicas (básicas/intermediárias/avançadas)? ").strip().lower()
+        idioma = input("Qual é o seu nível de conhecimento de idioma estrangeiro (básico/intermediário/fluente)? ").strip().lower()
+
+        resultado = verificar_selecao(idade, experiencia, habilitacao, cursos_complementares, escolaridade, certificacoes, habilidades_especificas, idioma)
+        print(resultado)
+    except ValueError:
+        print("Por favor, insira um valor numérico válido para idade, experiência, cursos e certificações.")
+
+if __name__ == "__main__":
+    main()
